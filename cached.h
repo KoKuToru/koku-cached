@@ -21,12 +21,12 @@ namespace koku
 				void scopeA()
 				{
 					cached< vector<int> > my_vector;
-					my_vector.data.push_back(123);
+					my_vector->push_back(123);
 				}
 				void scopeB()
 				{
 					cached< vector<int> > my_vector;
-					my_vector.data.push_back(456);
+					my_vector->push_back(456);
 				}
 
 				int main()
@@ -38,9 +38,9 @@ namespace koku
 					// my_vector will now include {123, 456} in it's array.
 					// it reused the old memory !
 					// therefor the right choise for this usage
-					// would be to my_vector.data.clear() before each usage
+					// would be to my_vector->clear() before each usage
 
-					my_vector.clear(); //remove valued, but still uses allocated memory from before !
+					my_vector->clear(); //remove valued, but still uses allocated memory from before !
 
 					//actually there is no Warranty that the result will be {123, 456}
 					//the compiler might reoder the functions and or
