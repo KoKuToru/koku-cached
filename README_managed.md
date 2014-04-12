@@ -1,3 +1,6 @@
+Example
+===========
+
     struct demo : koku::managed<demo> {
       int a;
       demo(int a): a(a) {}
